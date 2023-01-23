@@ -3,7 +3,7 @@ import { User } from '@prisma/client'
 
 export default class WelcomeEmail extends BaseMailer {
 
-  constructor (private user: User) {
+  constructor (private user: User | any ) {
     super()
   }
 

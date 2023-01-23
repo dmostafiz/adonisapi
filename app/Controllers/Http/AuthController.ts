@@ -4,10 +4,12 @@ import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Hash from '@ioc:Adonis/Core/Hash'
 import Mail from '@ioc:Adonis/Addons/Mail';
 import WelcomeEmail from 'App/Mailers/WelcomeEmail';
+import Ws from 'App/Services/Ws';
 
 export default class AuthController {
 
-    async register({ request, response, auth }: HttpContextContract) {
+    async register({ request, auth }: HttpContextContract) {
+
         try {
 
             const user = await prisma.user.create({
@@ -17,6 +19,9 @@ export default class AuthController {
                     password: await Hash.make(request.input('password'))
                 }
             })
+
+
+            Ws.io.emit('new:user', { username: 'virk' })
 
             await Mail.sendLater((message) => {
 
@@ -31,29 +36,25 @@ export default class AuthController {
 
             })
 
-            console.log('User created', user)
+            // console.log('User created', user)
 
             const token = await auth.login(user)
 
-            return response.send({ token })
+            return token
 
         } catch (error) {
 
-            return { ok: false, msg: 'Invalid credentials' }
+            return { ok: false, msg: error}
 
         }
     }
+
 
     async login({ request, auth }: HttpContextContract) {
 
         try {
 
             const token = await auth.attempt(request.input('email'), request.input('password'))
-
-            // if(!token) return response.unauthorized('Invalid credentials')
-
-            // console.log('User sucks', token)
-
 
             await new WelcomeEmail(auth.user).sendLater()
 

@@ -22,19 +22,11 @@ import { redisConfig } from '@adonisjs/redis/build/config'
 | Make sure to check `contracts/redis.ts` file for defining extra connections
 */
 export default redisConfig({
-  connection: Env.get('REDIS_CONNECTION'),
+
+  connection: 'local',
 
   connections: {
-    /*
-    |--------------------------------------------------------------------------
-    | The default connection
-    |--------------------------------------------------------------------------
-    |
-    | The main connection you want to use to execute redis commands. The same
-    | connection will be used by the session provider, if you rely on the
-    | redis driver.
-    |
-    */
+
     local: {
       host: Env.get('REDIS_HOST'),
       port: Env.get('REDIS_PORT'),
@@ -42,5 +34,6 @@ export default redisConfig({
       db: 0,
       keyPrefix: '',
     },
+
   },
 })
