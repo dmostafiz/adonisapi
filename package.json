@@ -29,6 +29,7 @@
     "@adonisjs/repl": "^3.1.11",
     "@adonisjs/view": "^6.2.0",
     "@prisma/client": "^4.9.0",
+    "@stouder-io/adonis-scheduler": "^1.0.3",
     "@wahyubucil/adonis-prisma": "^0.4.0",
     "adonis5-jwt": "^1.1.7",
     "adonisjs-cloudinary": "^0.1.6",

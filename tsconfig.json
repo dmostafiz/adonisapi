@@ -36,7 +36,8 @@
       "@adonisjs/redis",
       "adonis5-jwt",
       "adonisjs-cloudinary",
-      "@adonisjs/drive-s3"
+      "@adonisjs/drive-s3",
+      "@stouder-io/adonis-scheduler"
     ]
   }
 }
