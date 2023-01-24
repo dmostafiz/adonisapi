@@ -5,8 +5,7 @@
     "@adonisjs/core/build/commands/index.js",
     "@adonisjs/repl/build/commands",
     "@adonisjs/mail/build/commands",
-    "@wahyubucil/adonis-prisma/build/commands",
-    "@stouder-io/adonis-scheduler/build/commands/MakeTask"
+    "@wahyubucil/adonis-prisma/build/commands"
   ],
   "exceptionHandlerNamespace": "App/Exceptions/Handler",
   "aliases": {
@@ -29,7 +28,6 @@
     "@adonisjs/redis",
     "adonis5-jwt",
     "adonisjs-cloudinary",
-    "@stouder-io/adonis-scheduler",
     "@adonisjs/drive-s3"
   ],
   "aceProviders": [
