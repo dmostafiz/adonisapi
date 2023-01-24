@@ -5,6 +5,7 @@ import Hash from '@ioc:Adonis/Core/Hash'
 import Mail from '@ioc:Adonis/Addons/Mail';
 import WelcomeEmail from 'App/Mailers/WelcomeEmail';
 import Ws from 'App/Services/Ws';
+import { User } from '@prisma/client';
 
 export default class AuthController {
 
@@ -12,7 +13,7 @@ export default class AuthController {
 
         try {
 
-            const user = await prisma.user.create({
+            const user: User = await prisma.user.create({
                 data: {
                     email: request.input('email'),
                     name: request.input('name'),
@@ -21,7 +22,7 @@ export default class AuthController {
             })
 
 
-            Ws.io.emit('new:user', { username: 'virk' })
+            Ws.io.emit('new:user', { email: user.email })
 
             await Mail.sendLater((message) => {
 
