@@ -56,11 +56,11 @@
     },
     {
       "pattern": ".env",
-      "reloadServer": true
+      "reloadServer": false
     },
     {
       "pattern": "prisma/schema.prisma",
-      "reloadServer": true
+      "reloadServer": false
     }
   ]
 }
