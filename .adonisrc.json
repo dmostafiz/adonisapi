@@ -49,15 +49,7 @@
   ],
   "metaFiles": [
     {
-      "pattern": "ace-manifest.json",
-      "reloadServer": false
-    },
-    {
       "pattern": "resources/views/**/*.edge",
-      "reloadServer": false
-    },
-    {
-      "pattern": ".env",
       "reloadServer": false
     },
     {
