@@ -1,7 +1,7 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import { prisma } from "@ioc:Adonis/Addons/Prisma";
 import cloudinary from '@ioc:Adonis/Addons/Cloudinary'
-import Drive from '@ioc:Adonis/Core/Drive'
+// import Drive from '@ioc:Adonis/Core/Drive'
 
 // import { User } from "@prisma/client";
 

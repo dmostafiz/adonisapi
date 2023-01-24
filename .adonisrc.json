@@ -53,6 +53,14 @@
     {
       "pattern": "resources/views/**/*.edge",
       "reloadServer": false
+    },
+    {
+      "pattern": ".env",
+      "reloadServer": true
+    },
+    {
+      "pattern": "prisma/schema.prisma",
+      "reloadServer": true
     }
   ]
 }
