@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "node ace serve --watch",
-    "build": "node ace build --production && cd build && npi npm ci --production",
+    "build": "node ace build --production && cd build && npm ci --production",
     "start": "node build/server.js",
     "postinstall": "patch-package"
   },
