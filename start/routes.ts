@@ -10,5 +10,7 @@ Route.post('/upload', 'UsersController.upload')
 Route.post('/streem-upload', 'UsersController.uploadStream')
 
 Route.get('/show/:fileId', 'UsersController.showFile')
+Route.get('/user/:userId', 'UsersController.getUserById')
+
 
 

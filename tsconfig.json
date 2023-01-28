@@ -38,7 +38,8 @@
       "adonis5-jwt",
       "adonisjs-cloudinary",
       "@adonisjs/drive-s3",
-      "@stouder-io/adonis-scheduler"
+      "@stouder-io/adonis-scheduler",
+      "@adonisjs/lucid"
     ]
   }
 }

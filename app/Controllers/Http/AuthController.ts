@@ -1,11 +1,11 @@
-import { prisma } from '@ioc:Adonis/Addons/Prisma';
-
+// import { prisma } from '@ioc:Adonis/Addons/Prisma';
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
-import Hash from '@ioc:Adonis/Core/Hash'
+// import Hash from '@ioc:Adonis/Core/Hash'
 import Mail from '@ioc:Adonis/Addons/Mail';
 import WelcomeEmail from 'App/Mailers/WelcomeEmail';
 import Ws from 'App/Services/Ws';
-import { User } from '@prisma/client';
+import User from 'App/Models/User';
+// import { User } from '@prisma/client';
 
 export default class AuthController {
 
@@ -13,14 +13,23 @@ export default class AuthController {
 
         try {
 
-            const user: User = await prisma.user.create({
-                data: {
-                    email: request.input('email'),
-                    name: request.input('name'),
-                    password: await Hash.make(request.input('password'))
-                }
-            })
+            // const user: User = await prisma.user.create({
+            //     data: {
+            //         email: request.input('email'),
+            //         name: request.input('name'),
+            //         password: await Hash.make(request.input('password'))
+            //     }
+            // })
 
+            const user: User = new User()
+            user.name = request.input('name')
+            user.email = request.input('email')
+            user.parentId = request.input('parentId')
+            user.password = request.input('password')
+
+            await user.save()
+
+            console.log('User created' + user)
 
             Ws.io.emit('new:user', { email: user.email })
 
@@ -44,8 +53,9 @@ export default class AuthController {
             return token
 
         } catch (error) {
+            console.log('Login Error: ' + error)
 
-            return { ok: false, msg: error}
+            return { ok: false, msg: error }
 
         }
     }
@@ -59,12 +69,14 @@ export default class AuthController {
 
             await new WelcomeEmail(auth.user).sendLater()
 
-
+            // console.log('User logged' + JSON.toString(token))
             return token
 
         } catch (error) {
 
-            return { ok: false, msg: 'Invalid credentials' }
+            console.log('Login Error: ' + error)
+
+            return { ok: false, msg: error }
 
         }
     }

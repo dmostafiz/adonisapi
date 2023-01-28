@@ -1,0 +1,16 @@
+diff --git a/node_modules/knex/lib/dialects/postgres/index.js b/node_modules/knex/lib/dialects/postgres/index.js
+index a45edc3..7c9a4f9 100644
+--- a/node_modules/knex/lib/dialects/postgres/index.js
++++ b/node_modules/knex/lib/dialects/postgres/index.js
+@@ -124,10 +124,7 @@ class Client_PG extends Client {
+   // checking on the database.
+   checkVersion(connection) {
+     return new Promise((resolve, reject) => {
+-      connection.query('select version();', (err, resp) => {
+-        if (err) return reject(err);
+-        resolve(this._parseVersion(resp.rows[0].version));
+-      });
++      resolve(37) //random high number for now
+     });
+   } 
+ 

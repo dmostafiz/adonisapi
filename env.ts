@@ -15,6 +15,7 @@
 import Env from '@ioc:Adonis/Core/Env'
 
 export default Env.rules({
+	
 	HOST: Env.schema.string.optional({ format: 'host' }),
 	PORT: Env.schema.number.optional(),
 	APP_KEY: Env.schema.string(),
@@ -32,5 +33,33 @@ export default Env.rules({
 	REDIS_HOST: Env.schema.string({ format: 'host' }),
     REDIS_PORT: Env.schema.number(),
     REDIS_PASSWORD: Env.schema.string.optional(),
+
+    S3_KEY: Env.schema.string(),
+    S3_SECRET: Env.schema.string(),
+    S3_BUCKET: Env.schema.string(),
+    S3_REGION: Env.schema.string(),
+    S3_ENDPOINT: Env.schema.string.optional(),
+
+	DB_CONNECTION: Env.schema.string(),
+
+    PG_HOST: Env.schema.string({ format: 'host' }),
+    PG_PORT: Env.schema.number(),
+    PG_USER: Env.schema.string(),
+    PG_PASSWORD: Env.schema.string.optional(),
+    PG_DB_NAME: Env.schema.string(),
+
+
+    // MYSQL_HOST: Env.schema.string({ format: 'host' }),
+    // MYSQL_PORT: Env.schema.number(),
+    // MYSQL_USER: Env.schema.string(),
+    // MYSQL_PASSWORD: Env.schema.string.optional(),
+    // MYSQL_DB_NAME: Env.schema.string(),
+
+
+    // ORACLE_HOST: Env.schema.string({ format: 'host' }),
+    // ORACLE_PORT: Env.schema.number(),
+    // ORACLE_USER: Env.schema.string(),
+    // ORACLE_PASSWORD: Env.schema.string.optional(),
+    // ORACLE_DB_NAME: Env.schema.string(),
 
 })
