@@ -1,7 +1,7 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 // import { prisma } from "@ioc:Adonis/Addons/Prisma";
 import cloudinary from '@ioc:Adonis/Addons/Cloudinary'
-// import User from 'App/Models/User';
+import User from 'App/Models/User';
 import Database from '@ioc:Adonis/Lucid/Database';
 // import moment from 'moment';
 // import Drive from '@ioc:Adonis/Core/Drive'
@@ -21,11 +21,14 @@ export default class UsersController {
         // })
 
         // Working for grouping users ---------> MySql
-        const users = Database.query()
-            .where(Database.raw('MONTH(created_at)'), '=', 2)
-            .select(Database.raw("DATE_FORMAT(created_at, '%M, %Y') as month,  DAY(created_at) as day, DATE(created_at) as date, COUNT(*) as count"))
-            .groupBy(`month`)
-            .from('users')
+        // const users = Database.query()
+        //     .where(Database.raw('MONTH(created_at)'), '=', 2)
+        //     .select(Database.raw("DATE_FORMAT(created_at, '%M, %Y') as month,  DAY(created_at) as day, DATE(created_at) as date, COUNT(*) as count"))
+        //     .groupBy(`month`)
+        //     .from('users')
+
+        const users = await User.all()
+
 
 
         // extract(element: string, input: timetz)
@@ -36,7 +39,7 @@ export default class UsersController {
         //     // .sum('id as total')
         //     .from('users')
 
-        // console.log('Auth User', request.myname)
+        console.log('All Users', users.length)
 
         return users
     }

@@ -31,7 +31,6 @@
       "@adonisjs/repl",
       "@japa/preset-adonis/build/adonis-typings",
       "@adonisjs/mail",
-      "@wahyubucil/adonis-prisma",
       "@adonisjs/view",
       "@adonisjs/auth",
       "@adonisjs/redis",

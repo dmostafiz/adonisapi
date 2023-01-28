@@ -1,14 +1,19 @@
 import { TaskContract } from '@ioc:StouderIO/Scheduler'
-import { prisma } from "@ioc:Adonis/Addons/Prisma";
+import User from 'App/Models/User'
 
 export default class TestTask implements TaskContract {
   public readonly name: string = 'TestTask'
-  public readonly cron: string = '*/30 * * * * *'
+  public readonly cron: string = '*/12 * * * * *'
 
   public async run(): Promise<void> {
 
-    const users = await prisma.user.count()
-    
-    console.log('Users count: ', users)
+    try {
+      const users: User[] = await User.all()
+      
+      console.log('Users count: ', users.length)
+      
+    } catch (error) {
+      console.log('User count error: ', error)
+    }
   }
 }

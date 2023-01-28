@@ -5,7 +5,6 @@
     "@adonisjs/core/build/commands/index.js",
     "@adonisjs/repl/build/commands",
     "@adonisjs/mail/build/commands",
-    "@wahyubucil/adonis-prisma/build/commands",
     "@stouder-io/adonis-scheduler/build/commands/MakeTask",
     "@adonisjs/lucid/build/commands"
   ],
@@ -24,7 +23,6 @@
     "./providers/AppProvider",
     "@adonisjs/core",
     "@adonisjs/mail",
-    "@wahyubucil/adonis-prisma",
     "@adonisjs/view",
     "@adonisjs/auth",
     "@adonisjs/redis",
@@ -57,7 +55,7 @@
       "reloadServer": false
     },
     {
-      "pattern": "prisma/schema.prisma",
+      "pattern": ".env",
       "reloadServer": false
     }
   ]

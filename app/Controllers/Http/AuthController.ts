@@ -67,7 +67,9 @@ export default class AuthController {
 
             const token = await auth.attempt(request.input('email'), request.input('password'))
 
-            await new WelcomeEmail(auth.user).sendLater()
+            const user = auth.user
+
+            await new WelcomeEmail(user!).sendLater()
 
             // console.log('User logged' + JSON.toString(token))
             return token

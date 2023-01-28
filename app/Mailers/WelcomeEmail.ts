@@ -1,9 +1,8 @@
 import { BaseMailer, MessageContract } from '@ioc:Adonis/Addons/Mail'
-import { User } from '@prisma/client'
-
+import User from 'App/Models/User'
 export default class WelcomeEmail extends BaseMailer {
 
-  constructor (private user: User | any ) {
+  constructor (private user: User ) {
     super()
   }
 
